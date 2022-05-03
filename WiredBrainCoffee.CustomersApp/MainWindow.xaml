@@ -8,10 +8,10 @@
         Title="MainWindow" d:DesignWidth="500" d:DesignHeight="600"  Height="500" Width="800" FontSize="20">
     <Grid ShowGridLines="True">
         <Grid.RowDefinitions>
-            <RowDefinition ></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -68,7 +68,7 @@
         <StatusBar Grid.Row="3" Grid.ColumnSpan="2">
             <StatusBarItem FontSize="20" Content=" (c) Wired Brain Coffee"/>
         </StatusBar>
-        <!-- Button For Add Customer -->
+        <!-- Button For Add Customer --><!--
         <Button 
                 Name="BtnAddCustomer"
                 VerticalAlignment="Top" 
@@ -79,10 +79,10 @@
                 <Image Source="./Images/add.png" Height="18" Margin="0 0 5 0"></Image>
                 <TextBlock Text="Add"></TextBlock>
             </StackPanel>
-        </Button>
+        </Button>-->
         
         <!-- Canvas -->
-        <Canvas Grid.Row="0" Grid.Column="1" Panel.ZIndex="3">
+        <!--<Canvas Grid.Row="0" Grid.Column="1" Panel.ZIndex="3">
             <Rectangle Canvas.Left="50" Canvas.Top="50" Fill="Red" Width="50" Height="50" RadiusX="25" RadiusY="25"></Rectangle>
         </Canvas>
         <Canvas Grid.Row="0" Grid.Column="1" Panel.ZIndex="2">
@@ -90,6 +90,6 @@
         </Canvas>
         <Canvas Grid.Row="0" Grid.Column="1" Panel.ZIndex="1">
             <Rectangle Canvas.Left="100" Canvas.Top="50" Fill="Blue" Width="50" Height="50" RadiusX="25" RadiusY="25"></Rectangle>
-        </Canvas>
+        </Canvas>-->
     </Grid>
 </Window>
