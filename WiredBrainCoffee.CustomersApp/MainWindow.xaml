@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WiredBrainCoffee.CustomersApp"
         mc:Ignorable="d"
         Title="MainWindow" d:DesignWidth="500" d:DesignHeight="600"  Height="500" Width="800" FontSize="20">
-    <Grid ShowGridLines="True">
+    <Grid ShowGridLines="False">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
@@ -14,12 +14,13 @@
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
         <!-- Main Menu -->
-        <Menu FontSize="20" Grid.ColumnSpan="2">
+        <Menu FontSize="20" Grid.ColumnSpan="3">
             <MenuItem Header="_View">
                 <MenuItem Header="_Customers"></MenuItem>
                 <MenuItem Header="_Products"></MenuItem>
@@ -27,14 +28,20 @@
         </Menu>
 
         <!-- Header -->
-        <StackPanel Background="#f05a28" Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="2">
-            <Image Source="/Images/logo.png" Width="100"/>
-            <TextBlock Text="Customers App" FontSize="30" Foreground="White"></TextBlock>
-            <TextBlock Text="Customers Version 1.0" FontSize="16" Foreground="#333333"></TextBlock>
-        </StackPanel>
+        <Grid Grid.Row="1" Grid.ColumnSpan="3" Background="#f05a28">
+            <StackPanel  HorizontalAlignment="Center" Orientation="Horizontal" >
+                <Image Source="/Images/logo.png" Margin="5" Width="100"/>
+                <TextBlock Text="Customers App" FontSize="30" Foreground="White" VerticalAlignment="Center"></TextBlock>
+                <TextBlock Text="Version 1.0" FontSize="16" Foreground="#333333" VerticalAlignment="Center" Margin="10"></TextBlock>
+            </StackPanel>
+        </Grid>
         
         <!-- Customer List -->
-        <StackPanel Background="#777" Grid.Row="2">
+        <Grid x:Name="CustomerListGrid" Background="#777" Grid.Row="2" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
             <StackPanel Orientation="Horizontal">
                 <Button Margin="10" Width="75">
                     <StackPanel Orientation="Horizontal">
@@ -44,16 +51,16 @@
                 </Button>
                 <Button Content="Delete" Width="75" Margin="0 10 10 10">
                 </Button>
-                <Button Margin="0 10 10 10">
+                <Button Margin="0 10 10 10" Click="ButtonMoveNavigation_Click">
                     <Image Source="/Images/move.png" Height="18"></Image>
                 </Button>
             </StackPanel>
-            <ListView Margin="10 0 10 10">
+            <ListView Grid.Row="1" Margin="10 0 10 10">
                 <ListViewItem>Julia</ListViewItem>
                 <ListViewItem>Alex</ListViewItem>
                 <ListViewItem>Thomas</ListViewItem>
             </ListView>
-        </StackPanel>
+        </Grid>
         
         <!-- Customer Details -->
         <StackPanel Margin="10" Grid.Row="2" Grid.Column="1">
@@ -61,11 +68,11 @@
             <TextBox/>
             <Label>Lastname:</Label>
             <TextBox/>
-            <CheckBox/>
+            <CheckBox>Is developer</CheckBox>
         </StackPanel>
         
         <!-- Statusbar-->
-        <StatusBar Grid.Row="3" Grid.ColumnSpan="2">
+        <StatusBar Grid.Row="3" Grid.ColumnSpan="3">
             <StatusBarItem FontSize="20" Content=" (c) Wired Brain Coffee"/>
         </StatusBar>
         <!-- Button For Add Customer --><!--
