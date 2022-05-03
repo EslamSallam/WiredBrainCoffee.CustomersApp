@@ -6,14 +6,35 @@
         xmlns:local="clr-namespace:WiredBrainCoffee.CustomersApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" FontSize="20">
-    <Grid>
+    <Grid ShowGridLines="True">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Rectangle Fill="LightBlue" Grid.Column="1" Grid.Row="1"></Rectangle>
         <Button 
-            Content="Add Customer"
-            Name="BtnAddCustomer"
-            VerticalAlignment="Top" 
-            HorizontalAlignment="Left" 
-            Margin="10" 
-            Click="Button_Click"></Button>
-        
+                Name="BtnAddCustomer"
+                VerticalAlignment="Top" 
+                HorizontalAlignment="Left" 
+                Margin="10" 
+                Click="Button_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="./Images/address-book.png" Height="18" Margin="0 0 5 0"></Image>
+                <TextBlock Text="Add"></TextBlock>
+            </StackPanel>
+        </Button>
+        <Canvas Grid.Row="0" Grid.Column="1" Panel.ZIndex="3">
+            <Rectangle Canvas.Left="50" Canvas.Top="50" Fill="Red" Width="50" Height="50" RadiusX="25" RadiusY="25"></Rectangle>
+        </Canvas>
+        <Canvas Grid.Row="0" Grid.Column="1" Panel.ZIndex="2">
+            <Rectangle Canvas.Left="75" Canvas.Top="50" Fill="Green" Width="50" Height="50" RadiusX="25" RadiusY="25"></Rectangle>
+        </Canvas>
+        <Canvas Grid.Row="0" Grid.Column="1" Panel.ZIndex="1">
+            <Rectangle Canvas.Left="100" Canvas.Top="50" Fill="Blue" Width="50" Height="50" RadiusX="25" RadiusY="25"></Rectangle>
+        </Canvas>
     </Grid>
 </Window>
