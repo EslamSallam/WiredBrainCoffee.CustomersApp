@@ -22,19 +22,19 @@ namespace WiredBrainCoffee.CustomersApp.View
     /// </summary>
     public partial class CustomersView : UserControl
     {
-        private CustomersViewModel _ViewCustomers;
+        private CustomersViewModel _ViewModel;
 
         public CustomersView()
         {
             InitializeComponent();
-            _ViewCustomers = new CustomersViewModel(new CustomerDataProvider());
-            DataContext = _ViewCustomers;
+            _ViewModel = new CustomersViewModel(new CustomerDataProvider());
+            DataContext = _ViewModel;
             Loaded += CustomersView_Loaded;
         }
 
         private async void CustomersView_Loaded(object sender, RoutedEventArgs e)
         {
-            await _ViewCustomers.LoadAsync();
+            await _ViewModel.LoadAsync();
         }
 
         private void ButtonMoveNavigation_Click(object sender, RoutedEventArgs e)
@@ -47,6 +47,11 @@ namespace WiredBrainCoffee.CustomersApp.View
             var col = Grid.GetColumn(CustomerListGrid);
             var newCol = col == 0 ? 2 : 0;
             Grid.SetColumn(CustomerListGrid, newCol);
+        }
+
+        private void ButtonAdd_Click(object sender, RoutedEventArgs e)
+        {
+            _ViewModel.Add();
         }
     }
 }
