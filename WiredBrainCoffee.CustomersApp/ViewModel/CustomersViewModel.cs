@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using WiredBrainCoffee.CustomersApp.Data;
@@ -27,6 +29,18 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
                 RaisePropertyChanged(nameof(SelectedCustomer));
             } 
         }
+
+        public Customer? SelectedCustomer
+        {
+            get => _selectedCustomer;
+            set
+            {
+                _selectedCustomer = value;
+                RaisePropertyChanged(nameof(SelectedCustomer));
+            }
+        }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         public async Task LoadAsync()
         {
