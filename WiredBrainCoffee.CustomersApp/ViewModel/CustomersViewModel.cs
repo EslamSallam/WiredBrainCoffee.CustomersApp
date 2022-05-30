@@ -30,18 +30,6 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
             } 
         }
 
-        public Customer? SelectedCustomer
-        {
-            get => _selectedCustomer;
-            set
-            {
-                _selectedCustomer = value;
-                RaisePropertyChanged(nameof(SelectedCustomer));
-            }
-        }
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-
         public async Task LoadAsync()
         {
             if (Customers.Any())
